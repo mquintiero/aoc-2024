@@ -1,5 +1,5 @@
 from itertools import cycle
-#Pretty inefficient
+
 content = []
 movements = [(-1,0), (0,1), (1,0), (0,-1)]
 movementsCycle = cycle(movements)
@@ -59,7 +59,6 @@ def moveGuardWithObstacleIn(area, row, col):
         newPosition = (guardPosition[0] + guardMovement[0], guardPosition[1] + guardMovement[1])
         if (outOfArea(newPosition)): 
             out = True
-            area[guardPosition[0]][guardPosition[1]] = 'X'
         else:
             if (area[newPosition[0]][newPosition[1]] == '#'):
                 guardMovement = next(movementsCycle)
@@ -69,7 +68,6 @@ def moveGuardWithObstacleIn(area, row, col):
                 if(guardPosition in accessedFrom[newPosition]):
                     looped = True
                 accessedFrom[newPosition].append(guardPosition)
-                area[guardPosition[0]][guardPosition[1]] = 'X'
                 guardPosition = newPosition
 
     area[row][col] = 'X'
