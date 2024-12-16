@@ -15,6 +15,7 @@ while todo:
     score, _, pos, dir, path = heappop(todo)
 
     if score > dist[pos, dir]: continue
+    if score > best: continue
     else: dist[pos, dir] = score
 
     if grid[pos] == 'E' and score <= best:
